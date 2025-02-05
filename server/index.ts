@@ -3,6 +3,7 @@ import "dotenv/config";
 import http from 'http';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import userRouter from './routes/userRoutes';
 
 
 const app = express();
@@ -20,3 +21,5 @@ db.once('open', () => {
     console.log(`Server is running on port ${PORT}`);
   });
 });
+
+app.use("/", userRouter);
