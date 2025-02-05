@@ -22,7 +22,7 @@ const Form = () => {
                 <input type="email" placeholder='Email' className='input input-bordered w-full' required/>
             </div>
         </div>
-        <button className='btn btn-primary'>Login</button>
+        <button type='submit' className='btn btn-primary'>Login</button>
     </form>
   )
 }

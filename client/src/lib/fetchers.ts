@@ -14,7 +14,7 @@ export async function handleSubmit(e:any, router: AppRouterInstance, avatarId: n
                 "Content-Type": "application/json"
             }
         })
-        router.push("/chat")
+        router.push("/chat");
     } catch (error) {
         console.log(error);
     }
