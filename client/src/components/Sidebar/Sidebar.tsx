@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 import { useCookies } from 'react-cookie';
 import { shallow  } from 'zustand/shallow';
 import { SearchBar } from './SearchBar';
+import ChatList from './ChatList';
 
 const Sidebar = () => {
     const [cookie, setCookie] = useCookies(["user"]);
@@ -23,6 +24,7 @@ const Sidebar = () => {
         <SearchBar user={myUser}/>
 
         {/** CHATLIST */}
+        {myUser && <ChatList mySelf={myUser}/>}
 
     </div>
   )
