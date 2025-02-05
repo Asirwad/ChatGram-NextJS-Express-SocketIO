@@ -19,3 +19,16 @@ export async function handleSubmit(e:any, router: AppRouterInstance, avatarId: n
         console.log(error);
     }
 }
+
+
+export async function fetchUser(cookie: { user?: any; },setUser: { (user: any): void; (arg0: any): void; }) {
+    const accessToken = cookie.user;
+    const response = await fetch("/user", {
+      method: "GET",
+      headers: {
+        Authorization: `${accessToken}`,
+      },
+    });
+    const user = await response.json();
+    setUser(user[0]);
+}
