@@ -11,6 +11,7 @@ const server = http.createServer(app);
 const {PORT} = process.env || 4000;
 
 app.use(cors());
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URL!);
 const db = mongoose.connection;
