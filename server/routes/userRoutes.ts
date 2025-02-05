@@ -15,5 +15,13 @@ router.post('/auth', async (req: Request, res: Response) => {
     }
 })
 
+router.get('/users', async (req: Request, res: Response) => {
+    try {
+        const users = await User.find({});
+        res.send(users);
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 export default router;
