@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
     name: String,
-    imageId: String,
+    imageId: Number,
     email: { type: String, unique: true },
     messages: [
         {

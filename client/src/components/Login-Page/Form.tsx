@@ -10,7 +10,7 @@ const Form = () => {
     const [avatarId, setavatarId] = useState<number>(1);
     const router = useRouter();
   return (
-    <form onSubmit={(e)=> handleSubmit(e, router)} className='flex flex-col gap-5 p-5 shadow-lg hover:shadow-xl'>
+    <form onSubmit={(e)=> handleSubmit(e, router, avatarId)} className='flex flex-col gap-5 p-5 shadow-lg hover:shadow-xl'>
         <Avatar avatarId={avatarId} setavatarId={setavatarId}/>
         <div className='flex flex-col xl:flex-row gap-5'>
             <div className='form-control w-full'>
