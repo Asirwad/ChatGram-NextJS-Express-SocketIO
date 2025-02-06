@@ -1,3 +1,4 @@
+import Messages from '@/components/Chat-Threads/Messages'
 import Sidebar from '@/components/Sidebar/Sidebar'
 import React from 'react'
 
@@ -8,6 +9,7 @@ const ChatPage = () => {
         {/** SIDEBAR */}
         <Sidebar/>
         {/** MESSAGES */}
+        <Messages />
       </div>
     </div>
   )
