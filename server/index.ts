@@ -13,7 +13,7 @@ const {PORT} = process.env || 4000;
 
 app.use(cors());
 app.use(express.json());
-app.use(morgan("common"));
+app.use(morgan("tiny"));
 
 mongoose.connect(process.env.MONGO_URL!);
 const db = mongoose.connection;
