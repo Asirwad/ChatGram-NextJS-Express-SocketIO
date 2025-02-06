@@ -3,6 +3,7 @@ import { useAllUsers } from '@/store/userStore';
 import { userProps } from '@/types'
 import React, { useEffect } from 'react'
 import { shallow } from 'zustand/shallow';
+import ChatItem from './ChatItem';
 
 const ChatList = ({mySelf}: {mySelf: userProps}) => {
     const { users, setUsers } = useAllUsers(
@@ -17,7 +18,13 @@ const ChatList = ({mySelf}: {mySelf: userProps}) => {
     }, [])
   return (
     <ul className='my-5 flex flex-col'>
-        {/** Chat item */}
+        {
+            users ? (
+                users?.reverse()?.map((user: any) => <ChatItem key={user._id} user={user} />)
+            ): (
+                <span className='loading loading-ring w-16'></span>
+            )
+        }
     </ul>
   )
 }

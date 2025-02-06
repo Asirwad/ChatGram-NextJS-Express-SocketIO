@@ -17,7 +17,11 @@ const Sidebar = () => {
         fetchUser(cookie, setUser);
     }, [cookie.user])
 
-  if (!myUser) return <div>Loading...</div>
+  if (!myUser) return (
+    <div className='container items-center'>
+        <div className='loading loading-spinner'/>
+    </div>
+  )
   return (
     <div className='w-full md:!block sidebar z-10 border-r-2 border-slate-400 md:w-1/2 lg:w-1/3 p-3 bg-white h-screen'>
         {/** SEARCHBAR */}
