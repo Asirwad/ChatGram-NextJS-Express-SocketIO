@@ -4,6 +4,7 @@ import http from 'http';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import userRouter from './routes/userRoutes';
+import morgan from 'morgan';
 
 
 const app = express();
@@ -12,6 +13,7 @@ const {PORT} = process.env || 4000;
 
 app.use(cors());
 app.use(express.json());
+app.use(morgan("common"));
 
 mongoose.connect(process.env.MONGO_URL!);
 const db = mongoose.connection;
