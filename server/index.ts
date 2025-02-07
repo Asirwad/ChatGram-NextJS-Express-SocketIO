@@ -38,6 +38,9 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
+  socket.on("joined", () => {
+    io.sockets.emit("new-user", "new user joined");
+  })
   socket.on("private message", async (to, message, mySelf) => {
     const user = await User.find({email: to});
     const decoded = jwt.verify(mySelf, process.env.ACCESS_TOKEN_SECRET!);
