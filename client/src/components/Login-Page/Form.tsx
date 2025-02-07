@@ -1,16 +1,23 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from './Avatar'
 import { handleSubmit } from '@/lib/fetchers';
 import { useRouter } from 'next/navigation';
+import {io} from 'socket.io-client';
+import { useCookies } from 'react-cookie';
 
-const Form = () => {
+function Form()  {
     // pulling avatar from public folder due to ssl restrictions
     //const [avatarId, setavatarId] = useState((Math.random() * 20).toFixed());
     const [avatarId, setavatarId] = useState<number>(1);
     const router = useRouter();
+    const socket = io("http://localhost:4000");
+    const [cookie] = useCookies(["user"]);
+    useEffect(() => {
+        if(cookie.user) router.push("/chat");
+    }, [cookie.user])
   return (
-    <form onSubmit={(e)=> handleSubmit(e, router, avatarId)} className='flex flex-col gap-5 p-5 shadow-lg hover:shadow-xl'>
+    <form onSubmit={(e)=> handleSubmit(e, router, avatarId, socket)} className='flex flex-col gap-5 p-5 shadow-lg hover:shadow-xl'>
         <Avatar avatarId={avatarId} setavatarId={setavatarId}/>
         <div className='flex flex-col xl:flex-row gap-5'>
             <div className='form-control w-full'>

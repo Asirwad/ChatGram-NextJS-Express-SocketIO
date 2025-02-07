@@ -1,7 +1,7 @@
 import { userProps } from "@/types";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 
-export async function handleSubmit(e:any, router: AppRouterInstance, avatarId: number) {
+export async function handleSubmit(e:any, router: AppRouterInstance, avatarId: number, socket: any) {
     e.preventDefault();
     try {
         await fetch("/auth", {
@@ -14,7 +14,8 @@ export async function handleSubmit(e:any, router: AppRouterInstance, avatarId: n
             headers: {
                 "Content-Type": "application/json"
             }
-        })
+        });
+        socket.emit("joined", "new user");
         router.push("/chat");
     } catch (error) {
         console.log(error);

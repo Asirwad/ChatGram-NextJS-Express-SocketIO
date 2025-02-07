@@ -4,6 +4,7 @@ import { userProps } from '@/types'
 import React, { useEffect } from 'react'
 import { shallow } from 'zustand/shallow';
 import ChatItem from './ChatItem';
+import {io} from 'socket.io-client';
 
 const ChatList = ({mySelf}: {mySelf: userProps}) => {
     const { users, setUsers } = useAllUsers(
@@ -12,6 +13,12 @@ const ChatList = ({mySelf}: {mySelf: userProps}) => {
             setUsers: state.setUsers
         }), shallow
     );
+    const socket = io("http://localhost:4000");
+   useEffect(() => {
+        socket.on("new-user", () => {
+            fetchUsers(mySelf, setUsers);
+        })
+   }, []);
     useEffect(() => {
         fetchUsers(mySelf, setUsers);
         console.log(mySelf);
