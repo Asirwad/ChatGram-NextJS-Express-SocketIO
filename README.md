@@ -87,6 +87,3 @@ ChatGram-NextJS-Express-SocketIO/
     ├── models/        # MongoDB models
     └── routes/        # API endpoints
 ```
-
-## 📄 License
-MIT © 2025 Asirwad
