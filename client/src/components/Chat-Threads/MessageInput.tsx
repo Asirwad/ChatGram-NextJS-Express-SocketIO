@@ -23,7 +23,8 @@ function MessageInp() {
     function handleSubmit(e: { preventDefault: () => void; }) {
         e.preventDefault();
         socket.emit("private message",selectedUser.email,inpValue,cookie.user)
-        setInpValue("")
+        setInpValue("");
+        setShowEmojies(false);
     }
     
     function onEmojiClick(emojiObject:{emoji:string}) {
