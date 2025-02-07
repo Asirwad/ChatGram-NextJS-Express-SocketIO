@@ -52,10 +52,12 @@ A full-stack Telegram clone featuring real-time messaging and video calling capa
 
 ## 📦 Installation
 
+### ⚙️ Server
+
 ```bash
 # Clone repository
-git clone https://github.com/Asirwad/telegram-clone.git
-cd telegram-clone
+git clone https://github.com/Asirwad/ChatGram-NextJS-Express-SocketIO.git
+cd ChatGram-NextJS-Express-SocketIO/server
 
 # Install dependencies
 npm install
@@ -63,6 +65,18 @@ npm install
 # Configure environment
 cp client/.env.example client/.env.local
 cp server/.env.example server/.env
+
+# Start development
+npm run dev
+```
+
+### 🪶 Client
+
+```bash
+cd ChatGram-NextJS-Express-SocketIO/client
+
+# Install dependencies
+npm install
 
 # Start development
 npm run dev
