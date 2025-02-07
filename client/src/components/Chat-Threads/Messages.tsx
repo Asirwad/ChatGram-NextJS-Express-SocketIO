@@ -3,7 +3,7 @@ import React from 'react'
 import TopBar from './TopBar'
 import { useSelectedUser } from '@/store/userStore'
 import MessageList from './MessageList'
-import MessageInput from './MessageInput'
+import MessageInp from './MessageInput'
 
 const Messages = () => {
     const selectedUser = useSelectedUser((state) => state.selectedUser);
@@ -15,7 +15,7 @@ const Messages = () => {
             {/** MESSAGES LIST */}
             <MessageList />
             {/** MESSAGE INPUT */}
-            <MessageInput/>
+            <MessageInp/>
         </div>
     </div>
   )
